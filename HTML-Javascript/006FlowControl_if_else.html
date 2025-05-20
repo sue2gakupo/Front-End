@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        if 
+        */
+
+        var s = 60;
+        /* if(s<60){
+            document.write("s的值小於60");
+        }
+        else{
+            document.write("s的值小於60");
+        } */
+
+        //////////////////////////////////////////////
+        //1.信用卡付款 2.現金付款 3.轉帳付款 4.Line Pay 5.貨到付款
+        //搜尋式
+        /* var payType = prompt("請選擇付款方式1.信用卡付款 2.現金付款 3.轉帳付款 4.Line Pay 5.貨到付款");
+
+        if (payType == 1) {
+            document.write("信用卡付款")
+        }
+
+        else if (payType == 2) {
+            document.write("現金付款")
+        }
+
+        else if (payType == 3) {
+            document.write("轉帳付款")
+        }
+
+        else if (payType == 4) {
+            document.write("Line Pay")
+        }
+
+        else if (payType == 5) {
+            document.write("貨到付款")
+        }
+        else {
+            document.write("請輸入1~5的數字")
+        } */
+
+        document.write("<hr>");
+        ////////////////////////////////
+        //區分等第
+        //90分以上為優等 80~89甲等 70~79乙等 
+        //60~69為丙等, 60以下為丁等
+
+        var point = prompt("區分等第");
+
+        /* //獨立的if
+        if (point > 90 && point < 100) {
+            document.write("優等")
+        }
+        if (point > 80 && point < 89) {
+            document.write("甲等")
+        }
+        if (point > 70 && point < 79) {
+            document.write("乙等")
+        }
+        if (point > 60 && point < 69) {
+            document.write("丙等")
+        }
+        if (point >= 0 && point <= 59) {
+            document.write("丁等")
+        } */
+
+        //搜尋式if
+        if (point > 90 && point < 100) {
+            document.write("優等")
+        }
+        else if (point > 80 && point < 89) {
+            document.write("甲等")
+        }
+        else if (point > 70 && point < 79) {
+            document.write("乙等")
+        }
+        else if (point > 60 && point < 69) {
+            document.write("丙等")
+        }
+        else if (point >= 0 && point <= 59) {
+            document.write("丁等")
+        }
+
+
+        //優化搜尋式if(減少運算)
+    
+        if (point >= 90 && point <= 100) {
+            document.write("優等")
+        }
+        else if (point >= 80 ) {
+            document.write("甲等")
+        }
+        else if (point >= 70 ) {
+            document.write("乙等")
+        }
+        else if (point >= 60 ) {
+            document.write("丙等")
+        }
+        else if (point >= 0 ) {
+            document.write("丁等")
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

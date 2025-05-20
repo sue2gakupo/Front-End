@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>welcome my Homepage</h1>
+    <h1 style="text-decoration: overline;">welcome my Homepage</h1>
+    <h1 style="text-decoration: underline;">welcome my Homepage</h1>
+    <h1 style="text-decoration: line-through;">welcome my Homepage</h1>
+    <h1><u>welcome my Homepage</u></h1>
+
+    <h1 style="text-decoration: none;">welcome my Homepage</h1>
+
+    <!-- 不同使用情境，例如超連結去掉底線 -->
+    <h1><u style="text-decoration: none;">welcome my Homepage</u></h1>
+
+    <h1><a href="#" style="text-decoration:none">test</a></h1>
+    <h1><a href="#" style="text-decoration: none;font-size: 3rem;font-weight: 900;color: brown;">test</a>
+    </h1>
+
+    <hr style="height: 250px;border-color:aliceblue;background-color: rgb(25,100,88);">
+
+    <input type="button" value="小" onclick="toSmall(0.7rem)">
+    <input type="button" value="中" onclick="toDefault(1rem)">
+    <input type="button" value="大" onclick="toLarge('2rem)">
+
+    <div id="news">
+        美國總統川普宣布實施對等關稅後，中國立刻祭出關稅報復性反擊，
+        川普因此再次升高中國輸美的商品關稅至245%，
+        貿易戰持續升溫。對此，英媒金融時報指出，中國在關稅戰中擁有3張底牌，
+        分別是貿易、美債及科技資產，以足夠對抗川普關稅。
+    </div><!-- 物件 -->
+
+    <script>
+
+        var news = document.getElementById("news");
+
+        function fontSizeChange(fs) {
+            news.style.fontSize = fs; // 直接改變news的字體大小
+        }
+
+        /* function toLarge() {
+            news.style.fontsize = "2rem";  // 2rem=32px(16px*2)
+        }
+        function toDefault() {
+            news.style.fontsize = "1rem";  // 1rem=16px(16px*1)
+        }
+        function toSmall() {
+            news.style.fontsize = "0.7rem"; // 0.7rem=11.2px(16px*0.7)
+        } */
+
+        //把會一直改動的地方參數化
+
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        CSS基底的三種選擇器
+
+        1.Tag Selector 標籤選擇器
+        2.Class Selector 類別選擇器：.classname (CSS中最有彈性)
+        3.ID Selector ID選擇器： #idname
+        */
+
+        #Jhon {
+            color: whitesmoke;
+            font-weight: bold;
+            font-size: 5rem;
+        }
+
+        #Mary {
+            color: olive;
+        }
+
+        .color {
+            color: blue;
+            background-color: #C7C7C7;
+            /* 俐落沉穩，辦公室 */
+        }
+
+        .h1 {
+            font-weight: bold;
+            font-size: 3rem;
+        }
+
+        .aaa {
+            color: darkorange;
+        } /* 同為class寫在後面的類別在combined class會覆蓋掉寫在前面的class */
+
+        h1 {
+            color: rgb(125, 226, 43);
+            background-color: rgb(192, 58, 233);
+            /* 前衛迷幻，能量飲料 */
+            font-size: 5rem;
+        }
+
+        /* 類別選擇器跟標籤選擇器選取的物件一樣，衝突的屬性會主要遵從類別選擇器 */
+        /* id(#) > class(.) > Tag */
+        /* 先比選擇器，再比寫的順序 */
+        /* CSS會依據這樣的規則設計出較有彈性的網站 */
+
+    </style>
+</head>
+
+<body>
+
+
+    <div style="background-color: darkslategrey;color:cornsilk;">Welcome my Homepage</div><!-- inline的屬性最大 -->
+    <div class="aaa h1 color">Welcome my Homepage</div> <!-- class combined 把class都放在一起 -->
+    <div class="h1" id="Mary">Welcome my Homepage</div>
+    <div class="h1">Welcome my Homepage</div>
+    <div>Welcome my Homepage</div>
+
+    <h1 id="Jhon">Welcome my Homepage</h1>
+    <h1 id="Mary">Welcome my Homepage</h1>
+    <h1 class="color">Welcome my Homepage</h1>
+    <h1 class="color">Welcome my Homepage</h1>
+    <h1>Welcome my Homepage</h1>
+    <p>welcome my Homepage</p>
+    <h1>Welcome my Homepage</h1>
+    <h1>Welcome my Homepage</h1>
+    <h2 class="h1" id="Jhon">Welcome my Homepage </h2>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //迴圈(loop)敘述
+        //for敘述
+        //用在知道要執行幾次
+
+        // for(起始值(宣告變數=0/1);結束值;增量值){
+        //  要執行的程式碼寫在這裡
+        // }
+
+        /*  document.write("<h1>Welcome</h1>") 
+        document.write("<h2>Welcome</h2>") */
+
+
+
+        //讓程式執行10次
+        for (var i = 1; i <= 10; i++) {
+            document.write("<h6>Welcome</h6>")
+        }
+        document.write("<hr>");
+
+
+        //用迴圈寫一組h1~h6
+        for (var i = 1; i <= 6; i++) {
+            document.write("<h" + i + ">welcome</h" + i + ">");
+
+        }
+        document.write("<hr>");
+
+        //用迴圈跑100組h1~h6
+        //巢狀迴圈(迴圈內放一層迴圈)
+        /* for (var j = 1; j <= 100; j++) {
+
+            for (var i = 1; i <= 6; i++) {
+                document.write("<h" + i + ">welcome</h" + i + ">");
+            }
+        }
+        document.write("<hr>"); */
+
+
+
+        //用迴圈計算1-1000的總和
+        //1+2+3+4+5
+        var sum = 0;
+        for (var i = 1; i <= 1000; i++) {
+            sum = sum + i;
+        }
+        document.write("1到1000的總和:" + sum)
+        //sum=0,  i=1, sum+i=0+1=1
+        //sum=1,  i=2, sum+i=1+2=3
+        //sum=3,  i=3, sum+i=1+2+3=6
+        //sum=6,  i=4, sum+i=1+2+3+4=10
+        //sum=10, i=5, sum+i=1+2+3+4+5=15
+        document.write("<hr>");
+
+
+        //用迴圈計算1-1000的奇數總和(巢狀外層再宣告1個總和變數)
+        //1+3+5+...+995+997+999
+
+        //寫法一:把偶數排除掉
+        var sum = 0;
+        for (var i = 1; i<= 1000; i++) {
+            if(i%2!=0)
+            sum=sum+i;
+        }
+        document.write("1到1000的奇數總和:" + sum);
+        document.write("<hr>");
+
+        //寫法二:計數器累加值
+        var sum=0;
+        for (var i =1; i<=1000; i+=2){
+            sum=sum+i;
+        }
+        document.write("1到1000的奇數總和:" + sum);
+        document.write("<hr>");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

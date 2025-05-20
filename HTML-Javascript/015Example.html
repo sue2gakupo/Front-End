@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="myTimer"></h1>
+
+    <input type="button" value="測試" onlick="test()">
+    <hr>
+
+    <input type="text" oninput="getMyNameValue()"><!-- oninput:即時觸發事件，觸發時打字中每一個字就觸發 -->
+    <div id="result"></div>
+    <hr>
+
+    x:<input type="text" id="textX">
+    y:<input type="text" id="textY">
+    <hr>
+
+
+    <input type="button" value="顯示新聞" onclick="showNews()">
+    <div id="newsArea"></div><!-- 新聞顯示區域 -->
+
+
+    <script>
+        //實例-小時鐘
+        //講解重點:物件的建構
+
+
+        function getMyTime() {
+            var timer = new Date();
+
+            var myTimer = document.getElementById("myTimer");   //function1:取得id為myTimer的物件
+            //myTimer.innerHTML = timer; 
+
+            //時間格式化
+            //2.節省語法的寫法
+            /*   var h = timer.getHours() < 10 ? "0" + timer.getHours() : timer.getHours();
+              var m = timer.getMinutes() < 10 ? "0" + timer.getMinutes() : timer.getMinutes();
+              var s = timer.getSeconds() < 10 ? "0" + timer.getSeconds() : timer.getSeconds(); */
+            //縮短if...else判斷式，但仍有改善空間
+
+
+
+            //時間格式化
+            //1.初步寫法
+            /* if (timer.getHours() < 10) {
+                h = "0" + timer.getHours();
+            }
+            else {
+                h = timer.getHours();
+            }
+            if (timer.getMinutes() < 10) {
+                m = "0" + timer.getHours();
+
+            }
+            else {
+                m = timer.getHours();
+            }
+            if (timer.getSeconds() < 10) {
+                s = "0" + timer.getHours();
+            }
+            else {
+                s = timer.getHours();
+            } */
+
+            //myTimer.innerHTML = timer.getHours() + ":" + timer.getMinutes() + ":" + timer.getSeconds(); 
+
+            //var result=getTimeFormat(timer);
+
+            myTimer.innerHTML = getTimeFormat(timer); //呼叫getTimeFormat()函數，將時間格式化後顯示在myTimer上
+        }
+
+
+        setInterval(getMyTime, 1000); //每秒執行一次getMyTime()函數
+
+        //時間格式化
+        //3.獨立成函數
+        function getTimeFormat(t) {        //function2:將時間格式化的功能獨立成函數，然後呼叫它
+
+            var h = t.getHours();
+            var m = t.getMinutes();
+            var s = t.getSeconds();
+
+
+            var h = h < 10 ? "0" + h : h;
+            var m = m < 10 ? "0" + m : m;
+            var s = s < 10 ? "0" + s : s;
+
+            return h + ":" + m + ":" + s;
+
+
+        }
+
+        ////////////////////////////////////////
+        //實例-簡易輸入 (DOM操作)
+        //講解重點:事件(Event)傳遞  //JS會把所有東西當物件看
+
+        function test() {
+            console.log("測試成功");
+            console.log(event);
+        }
+        //test();
+        var result = document.getElementById("result"); //取得id為result的物件
+        function getMyNameValue() {
+            
+            console.log(event.target.value); //event.target.value:取得觸發事件的物件的值
+
+            result.innerHTML = event.target.value; //將取得的值顯示在result上
+        }
+
+
+
+
+        ////////////////////////////////////////
+        //實例-滑鼠座標
+        //講解重點:事件(Event)傳遞  
+        var txtX = document.getElementById("textX");
+        var txtY = document.getElementById("textY");
+
+        function getXY() {
+            console.log(event.pageX);
+            console.log(event.pageY);
+
+            txtX.value = event.pageX;
+            txtY.value = event.pageY;
+        }
+
+        document.addEventListener('mousemove', getXY);
+
+        //////////////////////////////
+        //實例-打字機的校果
+        //講解重點:字串操作及時間延遲
+
+        var str = `據共同社報導，石破茂對議員們表示：「我們不打算為了迅速結束談判，而做出一個又一個的妥協。」
+        在被問及日本是否會對川普的關稅戰進行報復時，石破茂對議員們表示：「當我們受到能源和食品價格飆升的衝擊時，我認為報復性關稅不符合我們的國家利益」。不過，他補充說，「採取報復性關稅的選項並未被排除。」
+        日本經濟再生擔當大臣赤澤亮正預計本週飛往美國進行關稅談判。赤澤對議員們表示：「在談判中我將致力於優先考慮最符合日本利益、最有效的方案。」
+        東京曾多次敦促華府免除日本的關稅。然而，川普對所有國家徵收10 % 的基本關稅；從中國進口的商品面臨145 % 的關稅。`
+
+        var newsArea = document.getElementById("newsArea"); //取得id為newArea的物件
+
+        /* for (var i = 0; i < str.length; i++) {
+            newArea.innerHTML += str.substr(i, 1); //substring(0,1):取得字串的第一個字 //(0,1)累加1個字所以要+=
+
+        } */
+        var i = 0;
+        function showNews() {
+            newsArea.innerHTML += str.substr(i, 1); //substring(0,1):取得字串的第一個字 //每次累加1個字所以要+=
+            i++; //i每次加1
+            if (i <= str.length) {
+                setTimeout(showNews, 100); //每100毫秒執行一次showNews()函數 //自己呼叫自己(遞迴：寫法簡潔效能略差，可能會造成無窮迴圈)
+            }
+
+        }
+
+        //1.河內塔演算法(會有資料指數性成長的問題)
+        function hanoi(n, from, to, aux) {
+            if (n === 1) {
+            console.log(`Move disk 1 from ${from} to ${to}`);
+            return;
+            }
+            hanoi(n - 1, from, aux, to);
+            console.log(`Move disk ${n} from ${from} to ${to}`);
+            hanoi(n - 1, aux, to, from);
+        }
+
+        // Example usage:
+        hanoi(3, 'A', 'C', 'B'); // Move 3 disks from A to C using B as auxiliary
+
+
+        //2.八皇后問題
+        function solveNQueens(n) {
+            const solutions = [];
+            const board = Array.from({ length: n }, () => Array(n).fill('.'));
+
+            function isSafe(row, col) {
+                for (let i = 0; i < row; i++) {
+                    if (board[i][col] === 'Q') return false;
+                }
+                for (let i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
+                    if (board[i][j] === 'Q') return false;
+                }
+                for (let i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
+                    if (board[i][j] === 'Q') return false;
+                }
+                return true;
+            }
+
+            function backtrack(row) {
+                if (row === n) {
+                    solutions.push(board.map(r => r.join('')));
+                    return;
+                }
+                for (let col = 0; col < n; col++) {
+                    if (isSafe(row, col)) {
+                        board[row][col] = 'Q';
+                        backtrack(row + 1);
+                        board[row][col] = '.';
+                    }
+                }
+            }
+
+            backtrack(0);
+            return solutions;
+        }
+
+        // Example usage:
+        const n = 8; // Change this value for different board sizes
+        const solutions = solveNQueens(n);
+        console.log(`Number of solutions for ${n}-Queens:`, solutions.length);
+        console.log(solutions);
+
+
+
+        
+        //3.老鼠走迷宮
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

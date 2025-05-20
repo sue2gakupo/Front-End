@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="button" value="所有書籍資訊" onclick="showAllBooks()">
+    <input type="button" value="查詢書籍借閱狀態" onclick="searchBookByIndex()">
+
+
+
+    <script>
+
+
+
+
+        //函數功能練習
+        //寫一個函數 showAllBooks()：列出所有書籍資訊（ISBN、書名、作者、是否可借）。
+        //寫一個函數 searchBookByIndex()：提示使用者輸入編號 (1~5)，顯示該本書的詳細資訊。
+        //寫一個函數 getBookStatus(status)：將 true 轉成「可借」、false 轉成「借出中」。 //這個功能不用綁按鈕，因為只是顯示給其他功能用的
+
+
+        //資料區
+        var arrbookNo = ["01", "02", "03", "04", "05"] //非題目提供，自己先進行資料庫編號
+        var arrbookISBN = ["978001", "978002", "978003", "978004", "978005"];
+        var arrbookTitle = ["JavaScript 入門", "Python 全攻略", "資料結構基礎", "前端開發實戰", "資料庫設計"];
+        var arrbookAuthor = ["林小明", "張大仁", "李小美", "陳小文", "王大華"];
+        var arrbookStatus = [true, false, true, true, false]; // true 表示可借
+
+        //思路1，要先把T/F顯示為可借閱/出借中
+        //思路2，使用者輸入書籍編號，然後顯示該書籍的詳細資訊
+
+
+        if (bookStatus == true) {
+            console.log("可借閱")
+        }
+        else if (bookStatus == false) {
+            consolo.log("出借中")
+        }
+
+
+
+        //功能1:顯示所有書籍資訊
+        //結合功能3：
+
+        function showAllBooks(i) {
+            for (var i = 0; i < arrbookNo.length; i++) {
+
+                document.write(`${arrbookNo[i]}-${arrbookISBN[i]}-${arrbookTitle[i]}-${arrbookAuthor[i]}-${arrbookStatus[i]}<br>`);
+            }
+        }
+
+        //功能2:使用者輸入書籍編號可以單獨跑出該書資訊
+
+        function searchBookByIndex() {
+            var i = prompt("查詢書籍借閱狀態，請輸入書籍編號01~05:");
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

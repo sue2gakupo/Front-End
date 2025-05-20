@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //變數的scope
+
+        var a = 5, b = 0;
+        let x = 2, y = 0;
+
+        function cal() {
+            var c = a + b; //c在函式中宣告，是區域變數
+            let d = x + y; //d在函式中宣告，是區域變數
+            console.log(c); //顯示5
+            console.log(d); //顯示2
+        }
+        cal();
+
+        // console.log(c); //undefined
+        // console.log(d); //undefined
+
+
+        ///////////////////////////////////////////
+
+        var d = [];
+        for (let i = 0; i < 5; i++) {
+            d[i] = i;
+        }
+        console.log(d); //顯示[0, 1, 2, 3, 4]
+
+        ///////////////////////////////////////////
+
+        var f = [];
+        for (let i = 0; i < 10; i++) {
+            f[i] = function () {
+                console.log(i);
+            }
+        }
+
+        f[2](); //覆蓋函式定義的f[]，顯示2
+
+        ///////////////////////////////////////////
+
+        let w = function () {
+            console.log(123)
+        }
+
+        w();
+
+        ///////////////////////////////////////////
+
+        let q=[];
+        for(let i=0;i<10;i++){
+            q[i]=function(){
+                console.log(i);
+            }
+        }
+        q[2]();
+        q[3]();
+        q[4]();
+        q[5]();//覆蓋函式宣告的q，顯示2,3,4,5
+
+
+        ///////////////////////////////////////////
+
+        test();
+        function test() {
+            console.log("abc"); 
+        }
+
+        let test2 = function () {
+            console.log("abc2"); 
+        }
+        test2();
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

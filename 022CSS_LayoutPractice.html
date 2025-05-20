@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container {
+            width: 1266px;
+            margin: auto;
+            position: relative;
+            /* 相對位置 */
+        }
+
+
+
+        #container>section {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #banner1 {
+            position: absolute;
+            /* 絕對位置 */
+            top: 0;
+            left: 0;
+        }
+
+        #banner2 {
+            position: fixed;
+            /* 固定位置 */
+            top: 0;
+            right: 0;
+        }
+
+        #ad {
+            position: absolute;
+            /* 絕對位置 */
+            left: 1065px; 
+            top: 50px;
+            box-shadow: 0 0 20px black;
+            /* 陰影： */
+        }
+
+        #ad>span {
+            background-color: aqua;
+            color: red;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .hiden {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="CSS/banner1.jpg" id="banner1">
+    <img src="CSS/banner2.jpg" id="banner2">
+
+
+    <div id="container">
+        <div id="ad">
+            <span onclick="hide()">點我關閉</span><br>
+            <img src="CSS/ad.jpg">
+        </div>
+        <header>
+            <img src="CSS/top.jpg">
+        </header>
+        <section>
+            <nav>
+                <img src="CSS/left.jpg">
+            </nav>
+            <article>
+                <img src="CSS/right.jpg">
+            </article>
+        </section>
+        <footer>
+            <img src="CSS/bottom.jpg">
+        </footer>
+
+    </div>
+
+    <script>
+
+        var ad = document.getElementById("ad");
+
+        /* //操作CSS屬性：第一種寫法
+        function hide() {
+            ad.style.display = "none";
+        } */
+
+        //第二種寫法
+        function hide(){
+            ad.className0="hiden";
+        }
+
+        
+    </script>
+
+</body>
+
+</html>

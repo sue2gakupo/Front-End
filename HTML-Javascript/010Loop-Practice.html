@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    *<br>
+    **<br>
+    ***<br>
+    ****<br>
+    *****<br>
+    <hr>
+
+
+    <script>
+        document.write("*<br>")
+        document.write("**<br>")
+        document.write("***<br>")
+        document.write("****<br>")
+        document.write("*****<br>")
+        document.write("<hr>")
+
+        //使用迴圈for寫出以上圖形金字塔
+        for (var i = 1; i <= 1; i++) {      //第1列的迴圈       
+            document.write("*");
+        }
+        document.write("<br>");
+
+        for (var i = 1; i <= 2; i++) {      //第2列的迴圈  
+            document.write("*");
+        }
+        document.write("<br>");
+
+        for (var i = 1; i <= 3; i++) {      //第3列的迴圈 
+            document.write("*");
+        }
+        document.write("<br>");
+
+        for (var i = 1; i <= 4; i++) {      //第4列的迴圈 
+            document.write("*");
+        }
+        document.write("<br>");
+
+        for (var i = 1; i <= 5; i++) {      //第5列的迴圈 
+            document.write("*");
+        }
+        document.write("<br>");
+        //由此發現這些迴圈程式都一樣，只有更動結束值，以此可再重複一個迴圈
+        //可成為巢狀迴圈
+        document.write("<hr>")
+
+
+        //巢狀迴圈
+        for (var i = 1; i <= 5; i++) {       //*需要5列:列數的結束值為<=5 //結束值10000時所需的時間遠比1000多 //網頁反應黃金3秒,超過就會覺得很慢
+            for (var j = 1; j <= i; j++) {   //*每列*數<=列數本身
+                document.write("*");         //最裡面的程式放想反應出現的元素
+            }
+            document.write("<br>");          //裡面迴圈完後要換行
+        }
+        document.write("<hr>");
+
+
+        //不可用巢狀迴圈，只能用一個迴圈(改寫法後效能比巢狀迴圈快速很多)
+        var a = "";                            //a是空字串
+        for (var i = 1; i <= 5; i++) {
+            a = a + "*";
+            document.write(a + "<br>");
+        }
+        document.write("<hr>");
+
+
+        //可使用.repeat()函數
+        for (var i = 1; i <= 5; i++) {
+            document.write("*".repeat(i) + "<br>");
+        }
+
+        document.write("")
+
+        document.write("<hr>");
+
+        //////////////////////////////
+        //九九乘法表
+
+
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= 9; j++) {
+                document.write(i + "*" + j + "=" + (i * j) + "<br>");
+            }
+            document.write("<hr>");
+        }
+
+
+    </script>
+
+</body>
+
+</html>

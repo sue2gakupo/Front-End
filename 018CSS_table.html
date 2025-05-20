@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #table1 {
+            border: 2px double black;
+            width: 400px;
+        }
+
+        #table1 td,
+        #table1 th {
+            border: 1px soild black;
+        }
+
+        /* 從table1 底下找所有的th td標籤 */
+
+        #table1>tbody>tr:first-child>td:last-child {
+            color: red;
+        }
+
+        /* 這個選擇器會選到第一列的最後一個td標籤，這個td標籤的內容會變成紅色 */
+
+        #table1>tbody>tr:first-child>td:nth-child(2) {
+            color: rgb(89, 0, 255);
+        }
+
+        #table1 tr:hover {
+            background-color: rgb(131, 154, 228);
+            color: white;
+            font-size: 1.2rem;
+            border: 2px solid red;
+        }
+
+        /* tr:hover 滑鼠移到這一列的時候，這一列的背景顏色會變成淺藍色 */
+
+        a:link {
+            color: rgb(37, 209, 231);
+            text-decoration: none;
+        }
+        
+
+        a:active {
+            color: rgb(219, 243, 5);
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: rgb(255, 0, 212);
+        }
+
+        a:hover {
+            color: rgb(255, 0, 0);
+            text-decoration: underline;
+            background-color: rgb(65, 197, 191);
+            font-size: 1.5rem;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS Selectors</a>
+
+    <hr>
+    <table id="table1">
+
+        <caption>成績單</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>數學</th>
+                <th>英文</th>
+                <th>國文</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>小明</td>
+                <td>80</td>
+                <td>90</td>
+                <td>55</td>
+            </tr>
+            <tr>
+                <td>小華</td>
+                <td>60</td>
+                <td>70</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>小美</td>
+                <td>90</td>
+                <td>80</td>
+                <td>60</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4">製表人:小明</td>
+
+            </tr>
+        </tfoot>
+
+
+    </table>
+    <hr>
+
+    <table id="table2">
+        <tr><!-- 1列 -->
+            <td></td>
+            <td></td>
+            <td></td><!-- 3欄 -->
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+    </table>
+</body>
+
+</html>
