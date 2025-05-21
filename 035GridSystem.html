@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h3>基本使用</h3>
+
+        <!-- 一列三欄 -->
+        <div class="row">
+            <div class="col bg-danger">col 1</div>
+            <div class="col bg-info">col 2</div>
+            <div class="col bg-warning">col 3</div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2 bg-danger">col 1</div>
+            <div class="col-4 bg-info">col 2</div>
+            <div class="col-6 bg-warning">col 3</div>
+        </div>
+
+
+        <div class="row">
+            <div class="col bg-danger">col 1</div>
+            <div class="col bg-info">col 2</div>
+            <div class="col bg-warning">col 3</div>
+            <div class="col bg-success">col 4</div>
+            <div class="col bg-primary">col 5</div>
+        </div> <!-- 因為12格欄位除5除不盡，會自己平均分配 -->
+
+
+        <div class="row">
+            <div class="col-2 bg-danger">col 1</div>
+            <div class="col-3 bg-info">col 2</div>
+            <div class="col-5 bg-warning">col 3</div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-6 bg-danger">col 1</div>
+            <div class="col-5 bg-info">col 2</div>
+            <div class="col-6 bg-warning">col 3</div>
+        </div><!-- 超過12格，最後的欄位會直接跳下一行 -->
+        <hr>
+
+        <h3>加入斷点</h3>
+        <div class="row">
+            <div class="col-md bg-danger">col 1</div>
+            <div class="col-md bg-info">col 2</div>
+            <div class="col-md bg-warning">col 3</div>
+            <div class="col-md bg-success">col 4</div>
+            <div class="col-md bg-primary">col 5</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg bg-danger">col 1</div>
+            <div class="col-lg bg-info">col 2</div>
+            <div class="col-lg bg-warning">col 3</div>
+            <div class="col-lg bg-success">col 4</div>
+            <div class="col-lg bg-primary">col 5</div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl bg-danger">col 1</div>
+            <div class="col-xl bg-info">col 2</div>
+            <div class="col-xl bg-warning">col 3</div>
+            <div class="col-xl bg-success">col 4</div>
+            <div class="col-xl bg-primary">col 5</div>
+        </div>
+        <hr>
+
+        <h3>加入欄位數</h3>
+        <div class="row">
+            <div class="col-md-2 bg-danger">col 1</div>
+            <div class="col-md-2 bg-info">col 2</div>
+            <div class="col-md-2 bg-warning">col 3</div>
+            <div class="col-md bg-success">col 4</div>
+            <div class="col-md bg-primary">col 5</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 bg-danger">col 1</div>
+            <div class="col-lg-4 bg-info">col 2</div>
+            <div class="col-lg-2 bg-warning">col 3</div>
+            <div class="col-lg bg-success">col 4</div>
+            <div class="col-lg bg-primary">col 5</div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-4 bg-danger">col 1</div>
+            <div class="col-xl bg-info">col 2</div>
+            <div class="col-xl-4 bg-warning">col 3</div>
+            <div class="col-xl bg-success">col 4</div>
+            <div class="col-xl-3 bg-primary">col 5</div>
+        </div>
+        <hr>
+
+        <h3>多重斷點</h3>
+        <div class="row">
+            <div class="col-xl col-md-6 bg-danger">col 1</div>
+            <div class="col-xl col-md-6 bg-info">col 2</div>
+            <div class="col-xl col-md-4 bg-warning">col 3</div>
+            <div class="col-xl col-md-6 bg-success">col 4</div>
+            <div class="col-xl col-md-4 bg-primary">col 5</div>
+        </div>
+        <hr>
+
+        <h3>在列上指定欄位數(BS ver.5才有)</h3>
+        <div class="row row-cols-2"> <!-- 指定1列2欄 -->
+            <div class=" bg-danger">col 1</div>
+            <div class=" bg-info">col 2</div>
+            <div class=" bg-warning">col 3</div>
+            <div class=" bg-success">col 4</div>
+            <div class=" bg-primary">col 5</div>
+        </div>
+
+        <div class="row row-cols-4"> <!-- 指定1列4欄 -->
+            <div class=" bg-danger">col 1</div>
+            <div class=" bg-info">col 2</div>
+            <div class=" bg-warning">col 3</div>
+            <div class=" bg-success">col 4</div>
+            <div class=" bg-primary">col 5</div>
+        </div>
+
+        <div class="row row-cols-6"> <!-- 指定1列6欄 (超過欄位長度的單字不會自動換行)-->
+            <div class=" bg-danger">col 1</div>
+            <div class=" bg-info"> With .row-cols-auto you can give the columns their natural width.</div>
+            <div class=" bg-warning">pneumonoultramicroscopicsilicovolcanoconiosis</div>
+            <div class=" bg-success">col 4</div>
+            <div class=" bg-primary">col 5</div>
+        </div>
+
+        <div class="row row-cols-auto"> 
+            <div class=" bg-danger">col 1</div>
+            <div class=" bg-info"> With .row-cols-auto you can give the columns their natural width.(auto可以讓欄位寬度隨著文字長度變化)</div>
+            <div class=" bg-warning">pneumonoultramicroscopicsilicovolcanoconiosis</div>
+            <div class=" bg-success">4</div>
+            <div class=" bg-primary">col 5</div>
+        </div>
+
+
+</body>
+
+</html>
