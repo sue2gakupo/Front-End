@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //區分等第
+        //90分以上為優等, 80~89分為甲等, 70~79分為乙等, 60~69分為丙等, 60分以下為丁等
+        //輸出範例:
+        //S001-王小明-優等
+        //S002-王小美-甲等
+        //S003-王小華-丁等
+
+        var arrStudentNo = ["S001", "S002", "S003", "S004", "S005", "S006", "S007", "S008", "S009", "S010"];
+        var arrStudentName = ["王小明", "王小美", "王小華", "王小強", "王小白", "王小藍", "王小綠", "王小紅", "王小紫", "王小黃"];
+        var arrStudentScore = [92, 87, 56, 68, 85, 83, 77, 71, 85, 93];
+        var arrgrade=["丁等","丁等","丁等","丁等","丁等","丙等","乙等","甲等","優等","優等"] 
+        //[丁等]10/10=1、[丁等]20/10=2、[丁等]30/10=3、[丁等]40/10=4、[丁等]50/10=5
+        //[丙等]60/10=6、[乙等]70/10=7、[甲等]80/10=8、[優等]90/10=9、[優等]100/10=10
+        
+
+
+        //需要index值的話，直接利用迴圈
+        //使用for迴圈來遍歷學生資料
+        //直覺寫法
+
+        var grade = "";
+        /* for (var i = 0; i < arrStudentNo.length; i++) {
+
+            //因需要判斷等第，迴圈內寫if判斷式
+            //程式碼重複性高(路徑搜尋式)
+        
+            if (arrStudentScore[i] >= 90)
+                grade = "優等";
+            else if (arrStudentScore[i] >= 80)
+                grade = "甲等";
+            else if (arrStudentScore[i] >= 70)
+                grade = "乙等";
+            else if (arrStudentScore[i] >= 60)
+                grade = "丙等";
+            else
+                grade = "丁等";
+
+            document.write(`${arrStudentNo[i]}-${arrStudentName[i]}-${grade}<br>`);
+        } */
+
+        
+        
+        //優化程式的寫法，不能包含判斷式]
+        //宣告等第陣列arrgrade換取判斷式計算的空間
+        var index=0;
+        for (var i = 0; i < arrStudentNo.length; i++) {
+            index = parseInt(arrStudentScore[i] / 10);
+
+            document.write(`${arrStudentNo[i]}-${arrStudentName[i]}-${arrgrade[i]}<br>`);
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

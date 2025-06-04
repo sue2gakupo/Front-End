@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //類別繼承的實作
+        //男生,女生=>人
+
+
+        // 抽象化(把兩個類別共有的一起抽出來，變為父類別)
+        class Peole {
+            #name;
+            #age;
+            #address;
+            #tel;
+            constructor(name, age, address, tel) {
+                this.#name = name;
+                this.#age = age;
+                this.#address = address;
+                this.#tel = tel;
+            }
+            //方法=功能
+            Walk() {
+                return "走路";
+            }
+            Run() {
+                return "跑步";
+            }
+            Eat() {
+                return "吃東西";
+            }
+        }
+
+
+
+        class Male extends Peole {
+            // #name;
+            // #age;
+            // #address;
+            // #tel;
+            constructor(name, age, address, tel) {
+                super(name, age, address, tel); //呼叫父類別的建構子
+                // this.#name = name;
+                // this.#age = age;
+                // this.#address = address;
+                // this.#tel = tel;
+            }
+            //方法=功能
+            // Walk() {
+            //     return "走路";
+            // }
+            // Run() {
+            //     return "跑步";
+            // }
+            // Eat() {
+            //     return "吃東西";
+            // }
+            // Sleep() {
+            //     return "睡覺";
+            // }
+
+            //專屬男生的方法
+            Jump() {
+                return "跳躍";
+            }
+        }
+
+        class Female {
+            // #name;
+            // #age;
+            // #address;
+            // #tel;
+            constructor(name, age, address, tel) {
+                super(name, age, address, tel);
+                // this.#name = name;
+                // this.#age = age;
+                // this.#address = address;
+                // this.#tel = tel;
+            }
+            // //方法=功能
+            // Walk() {
+            //     return "走路";
+            // }
+            // Run() {
+            //     return "跑步";
+            // }
+            // Eat() {
+            //     return "吃東西";
+            // }
+
+            // Sleep() {
+            //     return "睡覺";
+            // }
+
+            //專屬女生的方法
+            HopJump() {
+                return "單腳跳躍";
+            }
+        }
+
+
+////////////////////////////////////////////
+
+
+        let jack = new Male("Jack", 18, "台北", "0912345678"); //物件
+        let john = new Male("John", 20, "台北", "0912345678"); //物件
+        let bob = new Male("Bob", 22, "台北", "0912345678"); //物件 
+
+        jack.Walk();
+        john.Run();
+        bob.Jump();
+
+        let Mary = new Female("Mary", 18, "台北", "0912345678"); //物件
+        let Lisa = new Female("Lisa", 20, "台北", "0912345678"); //物件
+        let Lis=new People("Lis", 22, "台北", "0912345678"); //物件
+
+        Mary.HopJump();
+        Lisa.HopJump();
+        Lis.Walk();
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //變數的scope
+
+        var x = 2; //全域變數
+
+        function cal() {
+            var x = 3, y = 1; //區域變數
+            console.log(x); //顯示3
+        }
+        cal();
+
+        console.log(x); //顯示2，會被全域變數x覆蓋
+
+        ///////////////////////////////////////////
+        var xx = 2;
+
+        function cal2() {
+            xx = 5, yy = 1; //沒有重新var變數，因此這裡直接修改了全域變數 xx 的值。
+            console.log(xx);
+        }
+        cal2();
+
+        console.log(xx);//顯示5，會被修改後的全域變數xx覆蓋
+
+        ///////////////////////////////////////////
+        var a = 1;
+
+        function b() {
+            c = 2; //沒有重新var變數， 即使在函式內被賦值，c也被視為全域變數。
+            console.log("a=" + a);
+            console.log("c=" + c); //undefined
+        }
+        b()
+
+        console.log("a=" + a); //1
+        console.log("c=" + c); //2
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.信用卡付款 2.現金付款 3.轉帳付款 4.Line Pay 5.貨到付款
+        //搜尋式
+
+        /* var payType = prompt("請選擇付款方式1.信用卡付款 2.現金付款 3.轉帳付款 4.Line Pay 5.貨到付款");
+
+        switch (payType) {
+            case 1:
+                document.write("信用卡付款");
+                break;
+            case 2:
+                document.write("現金付款");
+                break;
+            case 3:
+                document.write("轉帳付款");
+                break;
+            case 4:
+                document.write("Line Pay");
+                break;
+            case 5:
+                document.write("Line Pay");
+                break;
+            default:
+                document.write("Line Pay");
+        
+        } */
+
+        ////////////////////////////////
+        //區分等第
+        //90分以上為優等 80~89甲等 70~79乙等 
+        //60~69為丙等, 60以下為丁等
+
+        /* var p = prompt("輸入分數");
+
+        r = parseInt(p / 10);  //利用parseInt
+
+
+        switch (p) {
+            case 10:
+            case 9:
+                document.write("優等");
+                break;
+            case 8:
+                document.write("甲等");
+                break;
+            case 7:
+                document.write("乙等");
+                break;
+            case 6:
+                document.write("丙等");
+                break;
+            default:
+                document.write("丁等");
+                break;
+
+        } */
+
+        var p = prompt("輸入分數");
+
+        switch (true) {
+            case (p >= 90):
+                document.write("優等");
+                break;
+            case (p >= 80):
+                document.write("甲等");
+                break;
+            case (p >= 70):
+                document.write("乙等");
+                break;
+            case (p >= 60):
+                document.write("丙等");
+                break;
+            default:
+                document.write("丁等");
+                break;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

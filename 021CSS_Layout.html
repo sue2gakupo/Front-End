@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container {
+            width: 1200px;
+            margin: auto;
+        }
+
+        #container>header {
+            border: 5px solid black;
+            color: lightslategray;
+            font-size: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: calc(1000 + 200);
+            padding: 20px;
+            text-align: center; 
+            background-color: rgb(243, 205, 179);
+            height: 250px;
+        }
+
+        #container>nav {
+            background-color: rgb(187, 65, 243);
+            height: 600px;
+            width: 200px;
+            float: left;
+            /* 物件浮(float)起來向左靠 */
+        }
+
+        #container>section {
+            background-color: rgb(10, 247, 215);
+            height: 600px;
+            width: 1000px;
+            float: right;
+            /* 物件浮(float)起來向右靠 */
+        }
+
+        #container>footer {
+            background-color: rgb(190, 236, 63);
+            height: 150px;
+            clear: both;
+            /* 清除float浮動的影響，讓footer不會被nav和section影響 */
+        }
+    </style>
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <div id="container">
+        <header>
+            top <br>
+            welcome to my website <br>
+            <a href="https://www.google.com">Google</a>
+        </header>
+        <nav>
+            left
+            <ul>
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">關於我們</a></li>
+                <li><a href="#">聯絡我們</a></li>
+                <li><a href="#">服務項目</a></li>
+        </nav>
+        <section>
+            
+            <h1>right</h1>
+            <p>這是段落</p>
+            <p>這是段落</p>
+            <p>這是段落</p>
+        </section>
+        <footer>
+            bottom
+            <p>這是段落</p>
+            &copy; 2023<br>
+            <a href="https://www.google.com">Google</a><br>
+            版權所有
+        </footer>
+    </div>
+
+</body>
+
+</html>

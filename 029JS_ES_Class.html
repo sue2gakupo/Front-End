@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="result"></h1>
+    <h1 id="result1"></h1>
+
+
+    <script>
+        let a = Date();//classless 沒有類別的物件形式
+
+        let Pen = function (color,cover,refill) {
+            //筆的屬性(特徵)property
+            //顏色
+            this.color = color;
+            //筆蓋
+            this.cover = cover;
+            //筆芯
+            this.refill =refill;
+
+            //筆的方法(功能)method=依附在物件裡面的function
+            //會寫字
+            /* this.getwords = () => {
+                return "Hello World";
+            } */
+
+            //方法多載
+            this.getwords = (myWords) => {
+                return myWords;
+            }
+            //會換筆芯
+            this.changeRefill = (myWords) => {
+                return myWords;
+            }
+            //會畫圖
+            this.paint = (myWords) => {
+                return myWords;
+            }
+
+        }
+
+        let result = document.getElementById("result");
+        let result1 = document.getElementById("result1");
+
+        let myPan = new Pen("藍色", "normal", "graphite"); 
+
+        /* myPan.color = "blue"; //改變物件的屬性
+        myPan.cover = "special"; */
+
+
+
+        result.innerHTML = myPan.color + "<br>" + myPan.cover + "<br>" + myPan.refill + "<br>" +
+            myPan.getwords("毎朝毎晩") + "<br>" + myPan.changeRefill("おやすみなさい") + "<br>" + myPan.paint("ありがとう");
+
+
+
+        // let Jack = new Pen();
+        // result1.innerHTML = Jack.color + "<br>" + Jack.cover + "<br>" + Jack.refill + "<br>" +
+        //     myPan.getwords() + "<br>" + Jack.changeRefill() + "<br>" + Jack.paint();
+
+
+        ///////////////////////////
+        //類別
+
+        class Pen2 {
+
+            #type; //私有fields
+            #color; //私有fields
+            #cover; //私有fields  
+            #refill;
+            #a; //私有fields
+            //私有fields只能在類別內部使用  
+
+
+
+
+            //建構子
+            constructor(color, cover, refill, type, a) {
+                //fields跟屬性不太一樣
+
+                this.#type = type; //預設值
+                this.#color = color;
+                this.#cover = cover;
+                this.#refill = refill;
+                this.#a = a;
+            }
+
+            //屬性封裝
+            //getter 使用return來取得私有屬性
+            //setter 使用this來改變私有屬性
+
+            get type() {
+                this.#type = "嘎嘎"; //預設值
+                return this.#type;
+            }
+
+            get a() {
+                if (this.#a < 0 || this.#a > 9) {
+                    return "錯誤";
+                }
+                return this.#a;
+            }
+
+            set refill(val) {
+                this.#refill = val;
+            }
+
+            get refill() {
+                return this.#refill;
+            }
+
+            
+            //透過方法來改變私有屬性
+            getColor() {
+                return this.#color;
+            }
+
+            setColor(myColor) {
+                this.#color = myColor;
+            }
+               
+        }
+
+        let myPen2 = new Pen2("紅色", "normal", "graphite", "原子筆", 8);
+        myPen2.type = "白板筆";
+        myPen2.setColor("藍色");
+        myPen2.refill = "水性筆";
+
+
+        result1.innerHTML = myPen2.a + "<br>" + myPen2.type + "<br>" + myPen2.getColor() + "<br>" +
+         myPen2.cover + "<br>" + myPen2.refill;
+
+       //cover 是私有欄位，外部不能直接用 myPen2.cover 取得它的值。
+       //私有欄位必須透過 getter 對外公開，外部才能存取。
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

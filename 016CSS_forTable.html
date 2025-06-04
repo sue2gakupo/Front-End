@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- CSS的inline會造成HTML的程式碼變得凌亂，
+ 整個標籤寫完會肥胖異常，對相同標籤進行相同外觀設計時-->
+    <table style="border: 1px solid black width=200px;" width:1px>
+        <tfoot></tfoot>
+
+        <caption>成績單</caption><!-- 會變成表格上面的表頭 -->
+        <thead>
+            <tr>
+                <th>姓名</th><!-- th=table header 自動置中於儲存格-->
+                <th>數學</th>
+                <th>英文</th>
+                <th>國文</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>小明</td><!-- td=table data -->
+                <td>80</td>
+                <td>90</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>小華</td>
+                <td>60</td>
+                <td>70</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>小美</td>
+                <td>90</td>
+                <td>80</td>
+                <td>60</td>
+            </tr>
+
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>總分</td><!-- tfoot=table footer -->
+                <td>230</td>
+                <td>240</td>
+                <td>210</td>
+            </tr>
+
+        </tfoot>
+
+
+    </table>
+
+
+
+
+
+
+    <table style="width: 600px;height: 800px;border: 1px soild black;">
+        <tr>
+            <th>姓名</th>
+            <th>年齡</th>
+            <th>性別</th>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>20</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>小華</td>
+            <td>22</td>
+            <td>女</td>
+        </tr>
+    </table>
+</body>
+
+</html>

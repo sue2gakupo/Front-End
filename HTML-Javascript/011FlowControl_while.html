@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //迴圈(loop)敘述
+        //while敘述
+        //通常用在不知道要執行幾次
+
+        /*  while(條件){
+             條件成立要執行的程式內容
+         } */
+
+
+
+        /* var a = 0;
+
+        while (a <= 5) {
+
+            document.write(`這個迴圈被執行了${a + 1}次<br>`);
+            a++;                 // 記得要加a++：可以避免無窮迴圈 (Increment a to avoid infinite loop)                        
+        } 
+            document.write("<hr>");*/
+
+
+
+
+        //用迴圈跑一組h1~h6
+        /* for (var j = 1; j <= 6; j++) {
+ 
+               document.write("<h" + i + ">welcome</h" + i + ">");
+              
+       } */
+
+
+
+        //改用while跑一組h1~h6
+        /* var i = 1;
+        while (i <= 6) {
+            document.write("<h" + i + ">welcome</h" + i + ">");   
+            i++;
+        }
+        document.write("<hr>"); */
+
+        var j = 1;
+        var color = prompt("請輸入顏色");
+        while (j <= 6) {
+            document.write("<h" + j + "style='color:" + color + ";background-color:'>welcome</h" + j + ">");
+            j++;
+        }
+
+        //ES6的寫法，""改成``，可以直接寫變數在裡面
+        for (let j = 1; j <= 6; j++) {
+            document.write(`<h${j} style="color:${color};background-color:yellow;">welcome</h${j}>`);
+        }
+        document.write("<hr>");
+
+        
+        //計算1加到1000的總和
+        //1+2+3+4+5...+1000
+        var i = 1;
+        var sum = 0;
+        while (i <= 1000) {
+            sum = sum + i;
+            i++;
+        }
+        document.write("1到1000的總和:" + sum);
+        document.write("<hr>");
+
+
+        //while畫星星
+        var a = "";
+        var i = 1;
+        while (i<=5) {
+            a = a + "*";
+            document.write(a + "<br>");
+        }
+        document.write("<hr>");
+
+
+        //while寫雞兔同籠
+        //雞兔共35隻，腳共94支，雞兔各有幾隻?
+
+        var x = 0;
+        while (2 * x + 4 * (35 - x) != 94) {
+            x++;
+        }
+
+        //x+y=35
+        document.write("雞為" + x + "隻, 兔子為" + (35 - x) + "隻");
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

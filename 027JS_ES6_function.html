@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <Script>
+
+        let t = function () {
+            console.log("Hello World");
+        }
+        //setInterval(t, 1000);
+
+        ///////////////////////////////////////////
+
+        // setInterval(function () {
+        //     console.log("Hello World"); 
+        // }, 1000);
+
+
+        // function t() {
+        //     console.log("Hello World"); //Hello World
+        // } setInterval(t(), 1000);
+
+
+        // //建構函數表示法//有助於精簡程式//有括號就代表有function
+
+        // setInterval(() => {
+        //     console.log("Hello World");
+        // }, 1000);
+
+        // function plus(a = 1, b = 2) {
+        //     console.log(a + b);
+        // }
+
+        // let plus=function (a = 1, b = 2) {
+        //     console.log(a + b);
+        // }
+        // plus(4);//會把4帶入a
+
+        let plus = (a = 1, b = 2) => {
+            console.log(a + b);
+        }
+
+        plus();//沒有帶入任何參數會使用預設值
+        plus(4);//會把4帶入a
+        plus(3, 4);
+        ///////////////////////////////////////////
+
+        function welcome(name) {
+            console.log("Hello " + name);
+        }
+
+        let welcome = function (name) {
+            console.log("Hello " + name);
+        }
+
+        let welcome = name => {
+            console.log("Hello " + name);
+        }
+
+        let welcome = name => console.log("Hello " + name);
+        welcome("John");
+
+        ///////////////////////////////////////////
+
+        let f=[2,1,3];
+        for(let i=0; i<f.length; i++){
+            console.log(f[i]);
+        }
+
+
+
+
+
+
+
+    </Script>
+
+</body>
+
+</html>

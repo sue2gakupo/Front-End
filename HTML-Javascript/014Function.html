@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="button" value="取得所有學生成績等第列表" onclick="getStudentGradeList()">
+    <input type="button" value="歡迎光臨本站" onclick="Welcome()">
+    <input type="button" value="查詢某位學生的成績等第" onclick="inputIndex()">
+
+
+    <!-- 事件驅動式，程式的執行是由事件觸發的，而不是程式一開始就執行所有功能
+    onclick:當使用者點擊按鈕時，會執行onclick後面的程式碼 -->
+
+
+    <script>
+        //結構化程式設計
+        //講解重點:將各功能函數(Function)化
+        //呼叫(call)=調用函數時，會執行該函數內的程式碼
+        //需設計出高內聚力，低耦合力的程式
+        //正式寫的時候，變數(var)要換成有語意的詞語，即駝峰式命名(不能以代詞a、b、c等代換)
+        //資料不要寫在function裡面，應該寫在function外面，這樣可以讓資料跟功能分開
+
+        //主程式
+        //同一個功能寫在同一個function
+
+        //Welcome(); //呼叫2功能
+        //getStudentGrade(); //呼叫功能1
+        /////////////////////////////////////////
+
+        //資料區
+        var arrStudentNo = ["S001", "S002", "S003", "S004", "S005", "S006", "S007", "S008", "S009", "S010"];
+        var arrStudentName = ["王小明", "王小美", "王小華", "王小強", "王小白", "王小藍", "王小綠", "王小紅", "王小紫", "王小黃"];
+        var arrStudentScore = [92, 87, 56, 68, 85, 83, 77, 71, 85, 93];
+        var arrGrade = ["丁等", "丁等", "丁等", "丁等", "丁等", "丙等", "乙等", "甲等", "優等", "優等"];
+
+
+        //功能2:歡迎光臨本站
+        function Welcome() {
+            var strUserName = prompt("請輸入您的大名");
+
+            document.write(`<h1>歡迎光臨${strUserName}蒞臨本站</h1>`);
+        }
+
+
+        //功能1:取得所有學生成績等第列表
+        function getStudentGradeList() {
+            result.innerHTML ="";
+            for (var i = 0; i < arrStudentNo.length; i++) {
+                getResult(i); //呼叫功能5，兩個function之間有耦合力
+            }
+        }
+
+        //功能3:查詢某位學生的成績等第
+        //有參數的函數
+        function getStudentGrade(index) {
+            index--;
+            getResult(index); //呼叫功能5，兩個function之間有耦合力     
+        }
+
+        //功能5:取得學生成績資料
+        function getResult(i) {
+            var index = 0;
+            index = parseInt(arrStudentScore[i] / 10);
+            document.write(`${arrStudentNo[i]}-${arrStudentName[i]}-${arrGrade[index]}<br>`);
+
+        }
+
+        //功能4:輸入要查詢的學生
+        function inputIndex() {
+            var index = prompt("請輸入要查詢的學生編號(1~10):");
+            getStudentGrade(index); //呼叫功能3，兩個function之間有耦合力
+        }
+
+
+        //相同的程式碼提出來，更換成已寫過相同程式碼的function，相當於數學中相同的係數只寫一次2x+2y+2z=2(x+y+z)
+
+
+        document.write("<hr>");
+    </script>
+
+
+
+    <!--  情境：一個按鈕取得部門資料 -->
+    <!--    /* 部門代碼 部門名稱
+        01 資訊部
+        02 管理部
+        03 行銷部
+        04 企劃部
+        05 人事處 -->
+
+    <input type="button" value="查詢所有部門列表" onclick="getDeptList()">
+    <input type="button" value="查詢所有部門列表2" id="btnGetDept"> <!-- 幫按鈕取名字，把onclick換成id -->
+   
+
+    <script>
+        //換掉document.write   //console.log可以在F12-console中看到btnGetDept的資料
+        //資料區
+        var arrDeptNo = ["01", "02", "03", "04", "05"];
+        var arrDeptName = ["資訊部", "管理部", "行銷部", "企劃部", "人事處"];
+
+
+
+
+        //DOM(Document Object Model)物件導向程式設計-操作的寫法
+        var btnGetDept = document.getElementById("btnGetDept");  //用元素的id取得指定物件 //左邊等於右邊→指定運算 //1個object(物件)
+        //console.log(btnGetDept);
+
+
+        //查詢所有部門列表2按鈕使用
+        btnGetDept.addEventListener("click", getDeptList);
+
+        //功能1:查詢所有部門列表2
+        function getDeptList() {
+            for (var i = 0; i < arrDeptNo.length; i++) {
+                document.write(`${arrDeptNo[i]}-${arrDeptName[i]}<br>`);
+                
+            }
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
