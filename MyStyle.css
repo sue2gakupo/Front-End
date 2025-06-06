@@ -1,0 +1,20 @@
+.jumbotron {
+            background-image: url('photo/16.jpg');
+            background-repeat: round;
+        }
+
+        .textshadow {
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        small,
+        .small {
+            font-size: 0.7em;
+        }
+
+        .myBgImage {
+            background-image: url('photo/16.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
