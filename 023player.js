@@ -1,23 +1,23 @@
 //開發的想法是：各個功能&畫面依序做
 //功能區
 
-
+//定義MusicPlayer會使用到的變數，方便後續操作DOM元素與功能
 //使用者觸發click事件，則播放音樂
-var myMusic = document.getElementById("myMusic");
-var volumeControl = document.getElementById("volumeControl");
-var information = document.getElementById("information")
-var progressBar = document.getElementById("progressBar"); //進度條
-var musicList = document.getElementById("musicList")
-var functionButtons = document.getElementById("functionButtons"); //功能鈕
+var myMusic = document.getElementById("myMusic"); // 取得 <audio> 元素，控制音樂播放
+var volumeControl = document.getElementById("volumeControl"); // 取得音量控制區塊
+var information = document.getElementById("information"); // 取得顯示資訊的區塊
+var progressBar = document.getElementById("progressBar"); //取得音樂進度條
+var musicList = document.getElementById("musicList"); // 取得音樂清單
+var functionButtons = document.getElementById("functionButtons"); // 取得功能按鈕區
 
 
-var txtVolume = volumeControl.children[3]; //音量顯示的input
-var rangeVolume = volumeControl.children[0]; //音量調整的range
+var txtVolume = volumeControl.children[3]; // 取得音量顯示的 input 元素
+var rangeVolume = volumeControl.children[0]; // 取得音量調整的 range 元素
 
 
 var musicDuration = information.children[0];
 var playStatus = information.children[1];
-var btnplay = functionButtons.children[0]; //播放鈕
+var btnPlay = functionButtons.children[0]; //播放鈕
 
 var infoStatus = information.children[2]; //單曲循環鈕
 
@@ -27,17 +27,17 @@ function musicStatus() {
 
     if (infoStatus.innerText == "單曲循環") {
         changeMusic(0); //單曲循環
-    } 
+    }
     else if (infoStatus.innerText == "隨機播放") {
         var n = Math.floor(Math.random() * musicList.length); //隨機在musiclist中選擇一首音樂
         changeMusic(n - musicList.selectedIndex); //隨機播放音樂
-    } 
+    }
     else if (infoStatus.innerText == "全曲循環" && musicList.length == musicList.selectedIndex + 1) {
         changeMusic(0 - musicList.selectedIndex);
-    } 
+    }
     else if (musicList.length == musicList.selectedIndex + 1) { //是否為最後一首歌
         stopMusic();
-    } 
+    }
     else {//不是最後一首歌就播下一首歌
         changeMusic(1);
     }
@@ -45,13 +45,13 @@ function musicStatus() {
 
 
 function loopOne() {
-    infobtnLoopOne.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "單曲循環";
+    infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "單曲循環";
 }
 function setRandom() {
-    infobtnLoopOne.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "隨機播放";
+    infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "隨機播放";
 }
 function loopAll() {
-    infobtnLoopOne.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "全曲循環";
+    infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "全曲循環";
 }//三個按鈕做互斥
 
 
@@ -64,9 +64,9 @@ function changeMusic(n) {
     musicList.children[i + n].selected = true;//選擇的音樂索引
 
 
-    //console.log(btnplay.innerText);
+    //console.log(btnPlay.innerText);
 
-    if (btnplay.innerText == ";") {
+    if (btnPlay.innerText == ";") {
         myMusic.onloadeddata = playMusic; //音樂載入完成後，再開始播放音樂
     }
 
@@ -103,9 +103,7 @@ function setMusicDuration() {
     var w = myMusic.currentTime / myMusic.duration * 100;
 
     // 更新進度條的背景漸層
-    progressBar.style.backgroundImage = `linear-gradient(to right, rgb(243, 208, 167) ${w}%,rgb(236, 236, 234) ${w}%)`;
-
-    /////////////////////////////////////////////////////////////
+    progressBar.style.backgroundImage = `linear-gradient(to right, rgb(245, 161, 64) ${w}%,rgb(239, 221, 189) ${w}%)`;
 
 }
 
@@ -146,7 +144,6 @@ function changeVolume(v) {
 function setMute() {
     myMusic.muted = !myMusic.muted;
     event.target.className = event.target.className == "setMute" ? "" : "setMute";
-    playStatus.innerHTML = "已靜音";
 }
 
 //快轉倒轉同一個按鈕//有參數的function//同一個參數不同結果
@@ -165,6 +162,10 @@ function changeTime(s) {
      } */
 
 
+//更新網頁上顯示的播放狀態資訊
+// text 是要顯示的文字內容（例如「目前播放xxx」或「音樂暫停」）
+// playStatus 是一個指向網頁上某個元素（通常是 <span> 或 <div>）的變數，用來顯示目前的播放狀態
+// playStatus.innerHTML = text; 這行會把這個元素的內容換成傳進來的 text
 function updateInfo(text) {
     playStatus.innerHTML = text;
 }
@@ -173,15 +174,15 @@ function updateInfo(text) {
 
 //播放音樂
 function playMusic() {
-    //console.log(event.target);
-    myMusic.play();
-    event.target.innerHTML = ";";
-    event.target.onclick = pauseMusic;
+    //console.log(event.target);//（註解）可用來檢查是哪個元素觸發事件
+    myMusic.play();             // 播放音樂（myMusic 是 <audio> 元素）
+    event.target.innerHTML = ";";// 將目前這個按鈕的內容換成「;」（代表暫停圖示）
+    event.target.onclick = pauseMusic; // 把這個按鈕的點擊事件改成暫停功能
 
-    ProgressInitial(); //音樂開始播放時，才開始更新進度條的值
+    ProgressInitial(); // 音樂開始播放時，初始化並開始更新進度條
 
-    //playStatus.innerHTML = "目前播放" + myMusic.title;
-    updateInfo("目前播放" + myMusic.title);
+    //playStatus.innerHTML = "目前播放" + myMusic.title;//（舊寫法）顯示目前播放的歌名
+    updateInfo("目前播放" + myMusic.title); // 用 updateInfo 函式更新網頁上的播放狀態
 }
 
 
@@ -198,9 +199,12 @@ function pauseMusic() {
 function stopMusic() {
     //音樂停下，且 進度條歸零
     myMusic.pause();
-    myMusic.currentTime = 0; //點擊停止鈕會跳到設定的時間
-    event.target.previousElementSibling.innerHTML = "4";//抓到上一個兄弟節點
-    event.target.previousElementSibling.onclick = playMusic; //恢復播放音樂的功能
+    myMusic.currentTime = 0; //// 將音樂播放進度設為 0（回到開頭）
+    // event.target.previousElementSibling.innerHTML = "4";//抓到上一個兄弟節點
+    // event.target.previousElementSibling.onclick = playMusic; //恢復播放音樂的功能
+    // 上面兩行是註解：原本設計是讓上一個按鈕（通常是播放/暫停鈕）恢復成播放圖示和功能
+
     //playStatus.innerHTML = "音樂停止";
-    updateInfo("音樂停止");
+    // 舊寫法，直接更新狀態顯示
+    updateInfo("音樂停止"); // 用 updateInfo 函式更新網頁上的播放狀態
 }
