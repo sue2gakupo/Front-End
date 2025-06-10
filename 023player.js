@@ -25,7 +25,7 @@ var infoStatus = information.children[2]; //單曲循環鈕
 /////////////////////////////////////////
 function musicStatus() {
 
-    if (infoStatus.innerText == "單曲循環") {
+    if (infoStatus.innerText == "單曲循環") {  //infoStatus.innerText 代表目前的播放模式（由 UI 按鈕切換）。
         changeMusic(0); //單曲循環
     }
     else if (infoStatus.innerText == "隨機播放") {
