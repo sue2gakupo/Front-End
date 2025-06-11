@@ -20,25 +20,87 @@
 
 
 /* CSS設定樣式 */
-.setMute {
-     text-decoration: line-through;
-     background-color: rgb(26, 16, 4);
-}
-
 #controlPanel {
-     border: 5px solid rgb(164, 191, 223);
-     background-color: rgb(212, 194, 194);
+     border: 5px solid rgb(242, 221, 222);
+     background-color: rgb(137, 171, 227);
      border-radius: 50px;
-     width: 1000px;
+     width: 600px;
      padding: 40px;
      margin: auto;
      border-radius: 5px;
+     text-align: center;
 }
 
+#musicList {
+     width: 600px;
+     height: 50px;
+     border: 5px solid rgb(242, 221, 222);
+     background-color: rgb(137, 171, 227);
+     border-radius: 5px;
+     margin: auto;
+     padding: 10px;
+     overflow-y: auto;
+     /* 滾動條 */
+}
+
+#logoimage {
+     width: 300px;
+     height: 300px;
+     margin: 5px auto;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 50%;
+     /* 圓形 */
+     background: radial-gradient(circle at 60% 40%, #444 60%, #222 100%);
+     box-shadow: 0 0 30px #222 inset, 0 0 10px #000;
+     border: 8px solid #111;
+     position: relative;
+     overflow: hidden;
+}
+
+/* radial-gradient：建立一個放射狀漸層背景。
+circle at 60% 40%：漸層的圓心在元素寬度的 60%、高度的 40% 位置（偏右上）。
+#444 60%：從圓心到 60% 的地方是深灰色 #444。
+#222 100%：從 60% 到最外圈 100% 是更深的灰色 #222。 */
+
+
+#logoimage img {
+     position: absolute;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     /* 讓圖片填滿且不變形 */
+     border-radius: 50%;
+     /* 圓形裁切 */
+     z-index: 2;
+}
+
+@keyframes spin {
+     100% {
+          transform: rotate(360deg);
+     }
+}
+
+#logoimage:hover img {
+     animation: spin 5s linear infinite;
+     /* 讓圖片旋轉 */
+}
+
+#logoimage.playing {
+     animation: spin 5s linear infinite;
+}
+
+
+
 #controlPanel span {
-     min-width: 200px;
+     min-width: 30px;
+     /* 至少30px，內容多會變寬 */
+     min-height: 10px;
+     /* 至少10px，內容多會變高 */
      background-color: #f3f2f2;
-     border: #6aaeee solid 2px;
      border-radius: 5px;
      border-bottom: 4px solid #d9d9d9;
      font-size: 1rem;
@@ -46,10 +108,16 @@
      text-decoration: none;
      box-shadow: 0px 5px 10px #b2cce6;
      transition: all 0.3s;
-     padding: 5px 30px;
+     padding: 5px;
+     /* 內容與邊框的內部空間 */
+     margin: 3px 3px;
+     /* 外部空間：按鈕間的間隔 */
      cursor: pointer;
      font-family: webdings;
+     display: inline-block;
 }
+
+/* |<--- margin --->|<--- border --->|<--- padding --->|內容| */
 
 #controlPanel span:hover {
      box-shadow: 0px 15px 25px -5px #0057ab;
@@ -59,6 +127,13 @@
 #controlPanel span:active {
      box-shadow: 0px 4px 8px #0065c8;
      transform: scale(0.98);
+}
+
+#controlPanel span.setMute {
+     text-decoration: line-through;
+     background-color: rgb(137, 171, 227);
+     color: #fff;
+     /* 讓字顏色明顯 */
 }
 
 #volumeControl {
@@ -101,10 +176,14 @@
      border: var(--vol-thumb-border);
 }
 
+
 #volumeControl>button {
      border-radius: 50%;
      border-width: 5px;
 }
+
+
+
 
 #information>div {
      text-align: center;
@@ -146,4 +225,3 @@
      border-radius: var(--progress-border-radius);
      transition: var(--progress-transition);
 }
-

@@ -144,6 +144,8 @@ function changeVolume(v) {
 function setMute() {
     myMusic.muted = !myMusic.muted;
     event.target.className = event.target.className == "setMute" ? "" : "setMute";
+    //event.target.innerHTML = myMusic.muted ? "V" : "U";// 切換圖示（"U"=喇叭，"V"=靜音）
+    updateInfo(myMusic.muted ? "已靜音" : "取消靜音"); // 更新播放狀態資訊
 }
 
 //快轉倒轉同一個按鈕//有參數的function//同一個參數不同結果
@@ -183,6 +185,7 @@ function playMusic() {
 
     //playStatus.innerHTML = "目前播放" + myMusic.title;//（舊寫法）顯示目前播放的歌名
     updateInfo("目前播放" + myMusic.title); // 用 updateInfo 函式更新網頁上的播放狀態
+    document.getElementById('logoimage').classList.add('playing'); // 添加播放中的樣式（例如更改 logo 圖片的樣式）
 }
 
 
@@ -193,6 +196,7 @@ function pauseMusic() {
     event.target.onclick = playMusic;
     //playStatus.innerHTML = "音樂暫停";
     updateInfo("音樂暫停");
+    document.getElementById('logoimage').classList.remove('playing');
 }
 
 //停止音樂
@@ -207,4 +211,5 @@ function stopMusic() {
     //playStatus.innerHTML = "音樂停止";
     // 舊寫法，直接更新狀態顯示
     updateInfo("音樂停止"); // 用 updateInfo 函式更新網頁上的播放狀態
+    document.getElementById('logoimage').classList.remove('playing');
 }
