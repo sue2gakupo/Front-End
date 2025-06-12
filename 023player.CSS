@@ -48,6 +48,7 @@
      height: 300px;
      margin: 5px auto;
      display: flex;
+     /* 讓內容置中 */
      align-items: center;
      justify-content: center;
      border-radius: 50%;
