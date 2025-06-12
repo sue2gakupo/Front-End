@@ -44,15 +44,19 @@ function musicStatus() {
 }
 
 
-function loopOne() {
-    infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "單曲循環";
+function setMode(mode) {
+    infoStatus.innerHTML = infoStatus.innerHTML == mode ? "正常" : mode;
 }
-function setRandom() {
-    infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "隨機播放";
-}
-function loopAll() {
-    infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "全曲循環";
-}//三個按鈕做互斥
+
+// function loopOne() {
+//     infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "單曲循環";
+// }
+// function setRandom() {
+//     infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "隨機播放";
+// }
+// function loopAll() {
+//     infoStatus.innerHTML = infoStatus.innerHTML == "單曲循環" ? "正常" : "全曲循環";
+// }//三個按鈕做互斥
 
 
 function changeMusic(n) {
@@ -103,7 +107,7 @@ function setMusicDuration() {
     var w = myMusic.currentTime / myMusic.duration * 100;
 
     // 更新進度條的背景漸層
-    progressBar.style.backgroundImage = `linear-gradient(to right, rgb(245, 161, 64) ${w}%,rgb(239, 221, 189) ${w}%)`;
+    progressBar.style.backgroundImage = `linear-gradient(to right, rgb(242, 162, 245) ${w}%,rgb(170, 237, 241) ${w}%)`;
 
 }
 
@@ -124,7 +128,7 @@ function setVolumeByRangeBar() {
     txtVolume.value = rangeVolume.value;
     myMusic.volume = txtVolume.value / 100; //真正寫入音量屬性值
     //用漸層-處理音量bar隨著button移動(塗音量條的顏色)
-    rangeVolume.style.backgroundImage = `linear-gradient(to right, rgb(253, 167, 68) ${rangeVolume.value}%,rgb(255, 255, 255) ${rangeVolume.value}%)`;
+    rangeVolume.style.backgroundImage = `linear-gradient(to right, rgb(219, 201, 248) ${rangeVolume.value}%,rgb(255, 255, 255) ${rangeVolume.value}%)`;
 
 }
 
@@ -211,5 +215,7 @@ function stopMusic() {
     //playStatus.innerHTML = "音樂停止";
     // 舊寫法，直接更新狀態顯示
     updateInfo("音樂停止"); // 用 updateInfo 函式更新網頁上的播放狀態
+    btnPlay.innerText = "4"; // 恢復成播放圖示
+    btnPlay.onclick = playMusic; // 恢復成播放功能
     document.getElementById('logoimage').classList.remove('playing');
 }

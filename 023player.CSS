@@ -3,14 +3,18 @@
      --vol-thumb-appearance: none;
      --vol-thumb-width: 30px;
      --vol-thumb-height: 18px;
-     --vol-thumb-background-color: rgb(253, 167, 68);
-     --vol-thumb-border-radius: 5px;
-     --vol-thumb-border: 3px solid darkgrey;
-
+     --vol-thumb-background-color: #ffc1e3;
+     /* 粉色 */
+     --vol-thumb-border-radius: 8px;
+     /* 圓角 */
+     --vol-thumb-border: 3px solid #3a7bd5;
+     /* 藍色外圈 */
+     --vol-thumb-box-shadow: 0 2px 6px #b2cce6;
+     
      --progress-appearance: none;
      --progress-width: 5px;
      --progress-height: 5px;
-     --progress-background-color: rgb(235, 18, 18);
+     --progress-background-color: rgb(213, 99, 236);
      --progress-border-radius: 5px;
      --progress-transition: 0.5s;
      --progress-hover-width: 15px;
@@ -145,10 +149,10 @@ circle at 60% 40%：漸層的圓心在元素寬度的 60%、高度的 40% 位置
 
 #volumeControl>input[type="text"] {
      width: 60px;
-     height: 30px;
+     height: 20px;
      border: 5px solid rgb(235, 209, 183);
      background-color: rgb(255, 255, 255);
-     color: rgb(1, 29, 37);
+     color: rgb(2, 23, 29);
      text-align: center;
 }
 
@@ -156,18 +160,11 @@ circle at 60% 40%：漸層的圓心在元素寬度的 60%、高度的 40% 位置
      width: 450px;
      height: 10px;
      appearance: none;
-     border: 5px solid rgb(235, 209, 183);
+     border: 3px solid rgb(235, 209, 183);
+     margin: 5px 5px;
 }
 
-#volumeControl>input[type="range"]::-webkit-slider-thumb {
-     appearance: var(--vol-thumb-appearance);
-     width: var(--vol-thumb-width);
-     height: var(--vol-thumb-height);
-     background-color: var(--vol-thumb-background-color);
-     border-radius: var(--vol-thumb-border-radius);
-     border: var(--vol-thumb-border);
-}
-
+#volumeControl>input[type="range"]::-webkit-slider-thumb 
 #volumeControl>input[type="range"]::-moz-range-thumb {
      appearance: var(--vol-thumb-appearance);
      width: var(--vol-thumb-width);
@@ -179,11 +176,27 @@ circle at 60% 40%：漸層的圓心在元素寬度的 60%、高度的 40% 位置
 
 
 #volumeControl>button {
-     border-radius: 50%;
-     border-width: 5px;
+     border-radius: 10px;
+     /* 圓角 */
+     border-width: 3px;
+     border-style: solid;
+     border-color: rgb(235, 209, 183);
+     background-color: rgb(175, 195, 228);
+     color: #1a1a1a;
+     width: 35px;
+     height: 30px;
+
+     font-size: 1.2rem;
+     box-shadow: 0 2px 8px #b2cce6;
+     transition: all 0.2s;
+     outline: none;
+     margin: 0 2px;
 }
 
-
+#volumeControl>button:active {
+     box-shadow: 0 1px 2px #3a7bd5;
+     background-color: #ffb6d5;
+}
 
 
 #information>div {
@@ -195,34 +208,25 @@ circle at 60% 40%：漸層的圓心在元素寬度的 60%、高度的 40% 位置
      appearance: none;
      width: 100%;
      height: 5px;
-     background-color: rgb(236, 236, 234);
+     
      margin-bottom: 20px;
 }
 
-#progressBar::-webkit-slider-thumb {
+#progressBar::-webkit-slider-thumb 
+#progressBar::-moz-range-thumb{
      appearance: var(--progress-appearance);
      background-color: var(--progress-background-color);
      width: var(--progress-width);
      height: var(--progress-height);
 }
 
-#progressBar::-webkit-slider-thumb:hover {
+#progressBar::-webkit-slider-thumb:hover 
+#progressBar::-moz-range-thumb:hover{
      width: var(--progress-hover-width);
      height: var(--progress-hover-height);
      border-radius: var(--progress-border-radius);
      transition: var(--progress-transition);
 }
 
-#progressBar::-moz-range-thumb {
-     appearance: var(--progress-appearance);
-     background-color: var(--progress-background-color);
-     width: var(--progress-width);
-     height: var(--progress-height);
-}
 
-#progressBar::-moz-range-thumb:hover {
-     width: var(--progress-hover-width);
-     height: var(--progress-hover-height);
-     border-radius: var(--progress-border-radius);
-     transition: var(--progress-transition);
-}
+
