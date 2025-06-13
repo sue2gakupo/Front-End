@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .textStyle {
+            color: rgb(0, 217, 255);
+            font-size: 30px;
+            background-color: rgb(197, 106, 250);
+            border: 2px solid rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1 id="Jay">jQuery</h1>
+        <p id="May">jQuery is a JavaScript library designed to simplify HTML document traversing, event handling,
+            animating, and
+            Ajax interactions for rapid web development.</p>
+    </div>
+
+    <button onclick="changeTextStyle()">點我</button>
+    <button id="myBtn">點我Second</button>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        /* let jack = document.getElementById("Jay");
+        jack.innerText = "III";
+        jack.style.color = "red";
+        jack.style.fontSize = "30px";
+        jack.style.backgroundColor = "yellow";
+        jack.style.border = "2px solid black";
+        //純JavaScript寫法 */
+
+        //jQuery == $()
+        //$('#Jay') #Jack就是CSS選擇器，寫法就是CSS寫法
+        //上方JS寫法等同於下方jQuery寫法
+        $('#Jay').text("III").css('color', 'red').css('font-size', '30px')
+            .css('background-color', 'yellow').css('border', '2px solid black');
+
+        //多個CSS屬性寫法
+        $('#Jay').text("III").css({
+            "color": "red",
+            "font-size": "30px",
+            "background-color": "yellow",
+            "border": "2px solid black"
+        });
+
+        function changeTextStyle() {
+            $('#May').addClass('textStyle'); //添加CSS類別
+
+        }
+
+
+        // let myBtn = document.getElementById("myBtn");
+        // myBtn.addEventListener("click", changeTextStyle);
+
+
+        $('#myBtn').click(changeTextStyle); //使用jQuery的click事件綁定
+
+
+
+
+    </script>
+</body>
+
+</html>
