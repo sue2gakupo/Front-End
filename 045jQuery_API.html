@@ -5,31 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
 
-    
+    <div class="container">
+        <table id="CASProduct" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>照片</th>
+                    <th>名稱</th>
+                    <th>縣市</th>
+                    <th>地址</th>
+                    <th>介紹</th>
+                </tr>
+            </thead>
+            <tbody>
 
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-       $.ajax({
-        type: "get",
-        url:"https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=qNRePfOf8YMS",
-        success: function (resp) {
-            console.log(resp);
-          
-        },
+        $.ajax({
+            type: "get",
+            url: "https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvAttractions.aspx",
+            success: function (resp) {
+                console.log(resp); //需要呼叫API的資料時，可以在F12看資料內容
+
+                let data = ""; //★JS初始化非常重要
+
+                /* for (let i = 0; i < resp.length; i++) {
+
+                    // resp[i].Photo
+                    // resp[i].Name
+                    // resp[i].City
+                    // resp[i].Address
+                    // resp[i].Introduction
+                    
+                    data += `<tr>
+                        <td><img src="${resp[i].Photo}" width="200" ></td>
+                        <td>${resp[i].Name}</td>
+                        <td>${resp[i].City}</td>
+                        <td>${resp[i].Address}</td>
+                        <td>${resp[i].Introduction}</td>
+                    </tr>`
+
+                } */
+
+                for (let item of resp) {
+
+                    data += `<tr>
+                        <td><img src="${item.Photo}" width="200" ></td>
+                        <td>${item.Name}</td>
+                        <td>${item.City}</td>
+                        <td>${item.Address}</td>
+                        <td>${item.Introduction}</td>
+                    </tr>`;
+
+                } //這裡抓到的值要看API的回傳資料欄位名稱，而不是自己設定的值
+
+                $('#CASProduct>tbody').html(data); //將資料插入到tbody中
+
+            },
 
 
-
-
-
-
-
-       });
+        });
     </script>
 </body>
 
